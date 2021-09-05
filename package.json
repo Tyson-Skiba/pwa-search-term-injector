@@ -14,8 +14,6 @@
     "create:certificates": "openssl req -nodes -new -x509 -keyout key.pem -out cert.pem",
     "demo": "concurrently \"yarn serve\" \"http-server ./mock-server \"",
     "demo:ssl": "concurrently \"yarn serve\" \"http-server ./mock-server ---ssl \"",
-    "demo:replace:url": "sed -i 's,http://localhost:8082/manifest.json,https://pwa-search-term-injector.herokuapp.com/manifest.json,g' demo/index.html",
-    "demo:netlify": "cp -r mock-server demo && yarn demo:replace:url",
     "deploy:base": "serverless deploy",
     "deploy:heroku": "git push heroku main",
     "deploy:aws": "serverless config credentials --provider aws --key ACCESS_KEY ?secret SECRET_KEY && yarn deploy:core",
