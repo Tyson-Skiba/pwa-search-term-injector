@@ -27,11 +27,6 @@ jobs:
       - run: yarn
       - run: yarn test:coverage
 
-      - name: Post report on pull request
-        uses: tintef/nyc-reporter-action
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPORTER: 'text'
       - uses: actions/upload-artifact@v2
         with:
           name: coverage-report
