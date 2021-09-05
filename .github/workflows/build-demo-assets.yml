@@ -25,9 +25,8 @@ jobs:
       - run: sed -i 's,http://localhost:8082/manifest.json,https://pwa-search-term-injector.herokuapp.com/manifest.json,g' demo/index.html
       - name: Deploy to netlify
         uses: netlify/actions/cli@master
+        with:
+          args: deploy --dir=demo
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        with:
-          args: deploy --dir=build --prod
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
