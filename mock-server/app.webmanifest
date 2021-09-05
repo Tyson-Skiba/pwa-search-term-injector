@@ -1,0 +1,33 @@
+{
+  "name": "PwaSearchTermExample",
+  "short_name": "PwaExample",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#5C3C84",
+  "description": "An example pwa for a service that injects search terms into pwa manifests.",
+  "icons": [{
+    "src": "logo/48x48.png",
+    "sizes": "48x48",
+    "type": "image/png"
+  }, {
+    "src": "logo/72x72.png",
+    "sizes": "72x72",
+    "type": "image/png"
+  }, {
+    "src": "logo/96x96.png",
+    "sizes": "96x96",
+    "type": "image/png"
+  }, {
+    "src": "logo/144x144.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }, {
+    "src": "logo/168x168.png",
+    "sizes": "168x168",
+    "type": "image/png"
+  }, {
+    "src": "logo/192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+}

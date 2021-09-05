@@ -1,0 +1,35 @@
+{
+  "name": "pwa-search-term-injector",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "author": "Tyson Skiba <tyson.skiba@gmail.com>",
+  "description": "Injects query (search) terms from the current url into progressive web app manifests",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tyson-Skiba/pwa-search-term-injector.git"
+  },
+  "scripts": {
+    "serve": "node app.js",
+    "demo": "concurrently \"yarn serve\" \"http-server ./mock-server \"",
+    "deploy:base": "serverless deploy",
+    "deploy:heroku": "git push heroku master",
+    "deploy:aws": "serverless config credentials --provider aws --key ACCESS_KEY ?secret SECRET_KEY && yarn deploy:core",
+    "deploy:gcf": "gcloud functions deploy pwa-search-term-injector --runtime nodejs14 --trigger-http --entry-point app",
+    "deploy:azure": "func azure functionapp publish PwaSearchTermInjector"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "querystring": "^0.2.1",
+    "serverless-http": "^2.7.0"
+  },
+  "devDependencies": {
+    "@chthomos/azure-function-express": "^2.0.8",
+    "concurrently": "^6.2.1",
+    "http-server": "^13.0.1",
+    "serverless": "^2.57.0"
+  }
+}

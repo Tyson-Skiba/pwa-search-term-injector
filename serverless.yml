@@ -1,0 +1,19 @@
+service: pwa-search-term-injector
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: ap-southeast-2
+  memorySize: 128
+functions:
+  app:
+    handler: lambda.handler
+    events: 
+      - http: 
+          path: /manifest.json
+          method: get
+          cors: true
+      - http: 
+          path: /version
+          method: get
+          cors: true

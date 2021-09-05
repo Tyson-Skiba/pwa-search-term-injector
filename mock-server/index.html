@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<script>
+    var link = document.createElement('link');
+    link.href = 'http://localhost:8082/manifest.json' + window.location.search;
+    link.rel = 'manifest';
+    document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+<head>
+    <!-- <link rel="manifest" href="app.webmanifest"> -->
+</head>
+<body>
+    Demo
+</body>
