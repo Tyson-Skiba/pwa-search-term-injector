@@ -12,8 +12,6 @@ RUN yarn
 COPY core.js ./core.js
 COPY app.js ./app.js
 
-RUN addgroup -S pwagroup && adduser -S pwauser -G pwagroup
-USER pwauser
-
-EXPOSE 8080
+EXPOSE 80
+EXPOSE 443
 CMD [ "node", "app.js" ]
