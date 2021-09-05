@@ -25,4 +25,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn
-      - run: yarn test
+      - run: yarn test:coverage
+      - uses: tintef/nyc-reporter-action
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPORTER: 'text'
+      - uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: path/to/artifact/
