@@ -105,19 +105,21 @@ yarn deploy:heroku
 
 ## Files
 
+```txt
 .    
-├── `app.js`: The entrypoint for yarn start   
-├── `azure.js`: The entrypoint for azure functions   
-├── `core.js`: The express app that is used by all wrappers   
-├── `Dockerfile`: Docker file image that is used to containerise the core app  
-├── `function.js`: The entrypoint for google functions   
-├── `function.json`: The configuration for azure functions   
-├── `lambda.js`: The entry point for aws lambda  
-├── `package.json`: Configuration for project  
-├── `Procfile`: The configuration for heroku  
-├── `serverless.yml`: The configuration for aws lambda  
-├── `mock-server`: Demo App  
-│   ├── `logo`: Static assets  
-│   ├── `index.html`: Demo App index  
-│   └── `app.webmanifest`: Base manifest that will have the start_url overwritten  
-└── `yarn.lock`: Dependency state file  
+├── app.js: The entrypoint for yarn start   
+├── azure.js: The entrypoint for azure functions   
+├── core.js: The express app that is used by all wrappers   
+├── Dockerfile: Docker file image that is used to containerise the core app  
+├── function.js: The entrypoint for google functions   
+├── function.json: The configuration for azure functions   
+├── lambda.js: The entry point for aws lambda  
+├── package.json: Configuration for project  
+├── Procfile: The configuration for heroku  
+├── serverless.yml: The configuration for aws lambda  
+├── mock-server: Demo App  
+│   ├── logo: Static assets  
+│   ├── index.html: Demo App index  
+│   └── app.webmanifest: Base manifest that will have the start_url overwritten  
+└── yarn.lock: Dependency state file  
+```
