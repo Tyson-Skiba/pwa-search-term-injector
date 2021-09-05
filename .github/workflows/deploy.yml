@@ -71,6 +71,6 @@ jobs:
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-          DOCKERHUB_REPOSITORY: ${{ secret.DOCKERHUB_REPO }}
+          DOCKERHUB_REPOSITORY: ${{ secrets.DOCKERHUB_REPO }}
           README_FILEPATH: .github/overview/docker-hub.md
         
