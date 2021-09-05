@@ -72,5 +72,6 @@ jobs:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
           DOCKERHUB_REPOSITORY: ${{ secrets.DOCKERHUB_REPO }}
-          README_FILEPATH: .github/overview/docker-hub.md
+          short-description: Injects query terms from the current url into progressive web app manifests
+          readme-filepath: ./overviews/docker-hub.md
         
