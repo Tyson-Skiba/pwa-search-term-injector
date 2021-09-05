@@ -52,7 +52,7 @@ Then deploy to your server or run locally
 docker run -p 8080:8080 -d pwa-search-term-injector:latest
 ```
 
-### Serverless - AWS Lambda
+### AWS Lambda (Serverless)
 
 Create an iam user on your account, this user will require cli access and lambda access.
 Open the `package.json` and replace ACCESS_KEY and SECRET_KEY with real values.
@@ -62,7 +62,7 @@ Open `serverless.yml` and change the region if you would prefer to deploy outsid
 yarn deploy:aws
 ```
 
-### Serverless - Azure Functions
+### Azure Functions
 
 Install the [azure cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)(must be 2.4+) and [func core tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#v2) then login via `az login`.
 Create a new azure resource and function once, please replace location with your preferred region and fill in the subscription token.
@@ -105,19 +105,19 @@ yarn deploy:heroku
 
 ## Files
 
-.
-├── `app.js`: The entrypoint for yarn start
-├── `azure.js`: The entrypoint for azure functions
-├── `core.js`: The express app that is used by all wrappers
-├── `Dockerfile`: Docker file image that is used to containerise the core app
-├── `function.js`: The entrypoint for google functions
-├── `function.json`: The configuration for azure functions
-├── `lambda.js`: The entry point for aws lambda
-├── `package.json`: Configuration for project
-├── `Procfile`: The configuration for heroku
-├── `serverless.yml`: The configuration for aws lambda
-├── `mock-server`: Demo App
-│   ├── `logo`: Static assets
-│   ├── `index.html`: Demo App index
-│   └── `app.webmanifest`: Base manifest that will have the start_url overwritten
-└── `yarn.lock`: Dependency state file
+.    
+├── `app.js`: The entrypoint for yarn start   
+├── `azure.js`: The entrypoint for azure functions   
+├── `core.js`: The express app that is used by all wrappers   
+├── `Dockerfile`: Docker file image that is used to containerise the core app  
+├── `function.js`: The entrypoint for google functions   
+├── `function.json`: The configuration for azure functions   
+├── `lambda.js`: The entry point for aws lambda  
+├── `package.json`: Configuration for project  
+├── `Procfile`: The configuration for heroku  
+├── `serverless.yml`: The configuration for aws lambda  
+├── `mock-server`: Demo App  
+│   ├── `logo`: Static assets  
+│   ├── `index.html`: Demo App index  
+│   └── `app.webmanifest`: Base manifest that will have the start_url overwritten  
+└── `yarn.lock`: Dependency state file  
