@@ -37,8 +37,8 @@ const getManifest = async (hostBase, query, forceHttp) => {
 
     const appRef = {
         "platform": "webapp",
-        // "url": `${host}/manifest.json${queryString ? `?${queryString}` : '' }`,
-        "url": `${host}/manifest.json`
+        "url": `${host}/manifest.json${queryString ? `?${queryString}` : '' }`,
+        // "url": `${host}/manifest.json`
     }
 
     if (manifest.related_applications && manifest.related_applications.length) {
