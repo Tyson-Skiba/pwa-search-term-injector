@@ -26,7 +26,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: yarn
       - run: yarn test:coverage
-      - uses: tintef/nyc-reporter-action
+
+      - name: Post report on pull request
+        uses: tintef/nyc-reporter-action
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPORTER: 'text'
