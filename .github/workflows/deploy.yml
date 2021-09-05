@@ -64,5 +64,5 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pwa-search-term-injector:${{ env.GITHUB_RUN_NUMBER }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pwa-search-term-injector:${{ github.run_number }}
         
