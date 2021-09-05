@@ -31,3 +31,8 @@ jobs:
         with:
           name: coverage-report
           path: path/to/artifact/
+
+      - uses: tintef/nyc-reporter-action@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPORTER: 'text'
