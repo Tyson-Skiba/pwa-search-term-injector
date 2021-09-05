@@ -15,14 +15,15 @@ self.addEventListener('install', evt => {
 })
 
 self.addEventListener('activate', evt => {
-    const tasks = Promise.all(
-        caches
-          .keys()
-          .then(cacheNames => cacheNames.map(name => {
-            if (name !== cacheStorageKey) return caches.delete(name)
-          })
+    const cacheTasks = caches
+        .keys()
+        .then(cacheNames => cacheNames && cacheNames.length
+            ? cacheNames.map(name => name !== cacheStorageKey ? caches.delete(name) : null)
+            : []
         )
-      )
+
+    const tasks = Promise
+      .all(cacheTasks)
       .then(() => self.clients.claim())
     
     evt.waitUntil(tasks)
