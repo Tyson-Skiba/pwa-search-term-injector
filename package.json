@@ -11,7 +11,9 @@
   },
   "scripts": {
     "serve": "node app.js",
+    "create:certificates": "openssl req -nodes -new -x509 -keyout key.pem -out cert.pem",
     "demo": "concurrently \"yarn serve\" \"http-server ./mock-server \"",
+    "demo:ssl": "concurrently \"yarn serve\" \"http-server ./mock-server ---ssl \"",
     "deploy:base": "serverless deploy",
     "deploy:heroku": "git push heroku master",
     "deploy:aws": "serverless config credentials --provider aws --key ACCESS_KEY ?secret SECRET_KEY && yarn deploy:core",

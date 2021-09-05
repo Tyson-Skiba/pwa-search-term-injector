@@ -7,5 +7,5 @@ const { app } = require('./core')
 const port = process.env.PORT || 8082
 
 app.listen(port, () => {
-    console.log('Serving proxy')
+    console.log(`Serving proxy on port ${port}`)
 })

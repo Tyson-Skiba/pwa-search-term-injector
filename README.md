@@ -120,6 +120,24 @@ yarn deploy:heroku
 ├── mock-server: Demo App  
 │   ├── logo: Static assets  
 │   ├── index.html: Demo App index  
+│   ├── service-worker.js: Minimal pwa worker 
 │   └── app.webmanifest: Base manifest that will have the start_url overwritten  
 └── yarn.lock: Dependency state file  
+```
+
+## Demo
+
+### HTTP
+
+```shell
+yarn demo
+```
+
+### HTTPS
+
+Ensure you have openssl installed
+
+```shell
+yarn create:certificates
+yarn demo:ssl
 ```

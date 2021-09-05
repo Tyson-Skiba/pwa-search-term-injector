@@ -4,6 +4,7 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#5C3C84",
+  "theme_color": "#5C3C84",
   "description": "An example pwa for a service that injects search terms into pwa manifests.",
   "icons": [{
     "src": "logo/48x48.png",

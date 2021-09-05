@@ -5,9 +5,155 @@
     link.rel = 'manifest';
     document.getElementsByTagName('head')[0].appendChild(link);
 </script>
+<script>
+    window.isPwa = navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+
+    window.onload = function() {
+        document.getElementById('content').innerText = isPwa ? `This PWA has this baked in ${window.location.search}` : 'Please install this progressive web app';
+    }
+
+    if (navigator.serviceWorker) {
+      navigator
+        .serviceWorker
+        .register('service-worker.js')
+        .then(function(registration) {
+            console.log('Registered events at scope: ', registration.scope);
+        });
+    }
+
+    function setUpListeners() {
+        if (window.isPwa) return;
+
+        var deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+   
+            var installButton = document.getElementById('install-button');
+            installButton.onclick = function() {
+                deferredPrompt.prompt();
+            }
+            
+            document.getElementById('card').style.bottom = '1rem';
+   
+            console.log(`'beforeinstallprompt' event was fired.`);
+        });
+
+        window.addEventListener('appinstalled', () => {
+            document.getElementById('card').style.bottom = '200vh';
+            deferredPrompt = null;
+
+            if (!window.isPwa) document.getElementById('content').innerText = 'Please open the installed pwa';
+        });
+    }
+
+    setUpListeners();
+</script>
+<style>
+    body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #5C3C84;
+        font-family: system-ui, sans-serif;
+    }
+
+    #card {
+        position: absolute;
+        border-radius: 5px;
+        bottom: 200vh;
+        right: 1rem;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        background: white;
+        max-width: 400px;
+        padding: 0 1rem;
+        margin-top: 200vh;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+        font-family: system-ui, sans-serif;
+        color: #241E1E;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #content {
+        text-align: center;
+        color: white;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+    }
+
+    button {
+        border: none;
+        background: transparent;
+        color: #5C3C84;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+    }
+
+    button:hover {
+        cursor: pointer;
+        /* border: 1px solid #5C3C84; */
+        background: #5C3C84;
+        color: white;
+    }
+
+    .center {
+        align-items: center;
+    }
+
+    .hero {
+        height: 50vh;
+        width: 50vh;
+        border: 1vh solid white;
+        border-radius: 10vh;
+    }
+
+    .prompt-logo {
+        margin-top: 1rem;
+        margin-right: 1rem;
+        display: flex;
+        height: 36px;
+    }
+</style>
 <head>
     <!-- <link rel="manifest" href="app.webmanifest"> -->
 </head>
 <body>
-    Demo
+    <div class="center row">
+        <img class="hero" src="logo/512x512.png" alt="logo"></img>
+        <h1 id="content"> </h1>
+    </div>
+    <div id="card">
+        <div class="column">
+            <img class="prompt-logo" src="logo/512x512.png" alt="logo"></img>
+            <div class="row">
+                <div class="message">
+                    <p>
+                        Please install this web app to observe how the query terms are baked into the pwa.
+                    </p>
+                </div>
+                <div class="button-container">
+                    <button id="install-button">Install</button>
+                </div>
+            </div>
+    </div>
 </body>
