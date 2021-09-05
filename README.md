@@ -1,5 +1,7 @@
 # PWA Manifest Proxy
 
+[![Docker](https://badgen.net/badge/icon/docker?icon=docker&label)](https://hub.docker.com/r/tskiba/pwa-search-term-injector) [![Demo](https://img.shields.io/badge/demo-netlify-%2300AD9F)](https://61349dc8aa4cecde6bce97b9--determined-bardeen-c29ea6.netlify.app?referer=github)
+
 This proxy service allows applications to serve progressive web application manifests with search terms in the url.
 
 ## Usage
