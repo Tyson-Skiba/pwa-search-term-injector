@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:14.17-alpine
 
 LABEL authors="Tyson Skiba"
 

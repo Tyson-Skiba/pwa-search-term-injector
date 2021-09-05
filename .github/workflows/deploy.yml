@@ -1,4 +1,4 @@
-name: Build Demo Assets for Netlify
+name: Deploy Assets
 
 on:
   push:
@@ -70,7 +70,7 @@ jobs:
         uses: peter-evans/dockerhub-description@v2
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
           DOCKERHUB_REPOSITORY: ${{ secrets.DOCKERHUB_REPO }}
           README_FILEPATH: .github/overview/docker-hub.md
         
