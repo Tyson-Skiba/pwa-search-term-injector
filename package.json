@@ -19,7 +19,7 @@
     "deploy:aws": "serverless config credentials --provider aws --key ACCESS_KEY ?secret SECRET_KEY && yarn deploy:core",
     "deploy:gcf": "gcloud functions deploy pwa-search-term-injector --runtime nodejs14 --trigger-http --entry-point app",
     "deploy:azure": "func azure functionapp publish PwaSearchTermInjector",
-    "test": "mocha \"tests/**/*.js\" --reporter mochawesome --exit",
+    "test": "mocha \"tests/**/*.js\" --exit",
     "test:coverage": "nyc --reporter=html --reporter=text yarn test"
   },
   "dependencies": {
