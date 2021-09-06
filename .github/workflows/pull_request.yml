@@ -28,11 +28,20 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: yarn
 
-      - name: Report test coverage
-        uses: PoorlyDefinedBehaviour/nyc-reporter@v1
+      - run: yarn:test
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
         with:
-          command: "yarn test:coverage"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: JEST Tests            
+          path: reports/jest-*.xml    
+          reporter: mocha-json
+          
+#      - name: Report test coverage
+#        uses: PoorlyDefinedBehaviour/nyc-reporter@v1
+#        with:
+#          command: "yarn test:coverage"
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/upload-artifact@v2
         with:
