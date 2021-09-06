@@ -26,4 +26,14 @@ describe('Server Tests', () => {
       });
   });
 
+  it('Endpoint returns a manifest', done => {
+    done();
+  });
+
+  it('Endpoint responds with a 404 when no manifest is suppled', done => {
+    request(app)
+      .get('/manifest.json')
+      .expect(404)
+      .end(done)
+  });
 });
